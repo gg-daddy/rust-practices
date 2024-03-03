@@ -1,5 +1,5 @@
 use array_tool::vec::Intersect;
-use structure::{Category, Customer, Order, Product};
+use structure_test::{Category, Customer, Order, Product};
 
 fn main() {
     let customer = Customer::new(1, "John Doe".to_string(), "email".to_string());

@@ -1,5 +1,5 @@
 [package]
-name = "structure"
+name = "structure_test"
 version = "0.1.0"
 edition = "2021"
 description = "A simple demo for rust module system."
