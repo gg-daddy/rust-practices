@@ -1,7 +1,7 @@
-mod Product {
+mod product {
 
-    mod Category {
-        enum Category {
+    mod category {
+        pub enum Category {
             Clothing,
             Electronics,
             Grocery,
@@ -9,7 +9,9 @@ mod Product {
         }
     }
 
-    struct Product {
+    use crate::product::category::Category;
+
+    pub struct Product {
         id: u32,
         name: String,
         price: f64,
@@ -26,27 +28,34 @@ mod Product {
             }
         }
 
-        fn calculate_total_price(&self) -> f64 {
+        pub fn calculate_total_price(&self) -> f64 {
             self.price + self.caculate_tax()
         }
     }
 }
 
-struct Customer {
-    id: u32,
-    name: String,
-    email: String,
+mod customer {
+    pub struct Customer {
+        id: u32,
+        name: String,
+        email: String,
+    }
 }
 
-struct Order {
-    id: u32,
-    product: Product,
-    customer: Customer,
-    quantity: u32,
-}
+mod order {
 
-impl Order {
-    fn calculate_total_price(&self) -> f64 {
-        self.product.calculate_total_price() * self.quantity as f64
+    use crate::customer::Customer;
+    use crate::product::Product;
+    struct Order {
+        id: u32,
+        product: Product,
+        customer: Customer,
+        quantity: u32,
+    }
+
+    impl Order {
+        fn calculate_total_price(&self) -> f64 {
+            self.product.calculate_total_price() * self.quantity as f64
+        }
     }
 }

@@ -34,7 +34,7 @@ fn main() {
     //vec6 的生命周期只在 {} 内，所以 vec5 不能引用 vec6， 如果引用了就出现了 Dangling References 问题，
     //因为 vec6 已经随着 scope 被销毁了。
     let vec5 = {
-        let vec6 = vec![4; 4];
+        let _vec6 = vec![4; 4];
         // &vec6
     };
     println!("vec5 = {:?}", vec5);

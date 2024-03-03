@@ -34,15 +34,15 @@ fn main() {
     //mutable references when assigned are moved, while immutable references are copied.
     let _vec2 = vec1_mut_ref;
     // let _vec3 = vec1_mut_ref;
-    let deep_copy_vec1 = _vec2.clone();
-    let deep_copy_vec2 = _vec2.clone();
+    let _deep_copy_vec1 = _vec2.clone();
+    let _deep_copy_vec2 = _vec2.clone();
 
     let vec1_immutable_ref = &vec1;
     let _vec4 = vec1_immutable_ref;
     let _vec5 = vec1_immutable_ref;
 
     //无论是 inmutable 还是 mutable，都是可以通过 clone 来创建新的数据。
-    let deep_copy_vec1 = _vec4.clone();
+    let _deep_copy_vec1 = _vec4.clone();
 
     let s1 = String::from("Hello");
     let s2 = &s1;
