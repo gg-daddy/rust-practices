@@ -29,4 +29,11 @@ fn main() {
     let f1: f64 = 1.0;
     let f2: f32 = f1 as f32;
     println!("f2: {}", f2);
+
+    //boolean 
+    let b1 = true;
+    let b2 = false;
+    if b1 != b2 {
+        println!("b1 and b2 are not equal");
+    }
 }
