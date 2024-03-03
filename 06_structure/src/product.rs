@@ -2,6 +2,7 @@ pub mod category;
 
 use crate::product::category::Category;
 
+#[derive(PartialEq, Debug)]
 pub struct Product {
     id: u32,
     name: String,
