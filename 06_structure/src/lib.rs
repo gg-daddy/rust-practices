@@ -1,18 +1,21 @@
-mod Product{
-    enum Category {
-        Clothing,
-        Electronics,
-        Grocery,
-        Books,
+mod Product {
+
+    mod Category {
+        enum Category {
+            Clothing,
+            Electronics,
+            Grocery,
+            Books,
+        }
     }
-    
+
     struct Product {
         id: u32,
         name: String,
         price: f64,
         category: Category,
     }
-    
+
     impl Product {
         fn caculate_tax(&self) -> f64 {
             match self.category {
@@ -22,12 +25,11 @@ mod Product{
                 Category::Books => self.price * 0.0,
             }
         }
-    
+
         fn calculate_total_price(&self) -> f64 {
             self.price + self.caculate_tax()
         }
     }
-        
 }
 
 struct Customer {
