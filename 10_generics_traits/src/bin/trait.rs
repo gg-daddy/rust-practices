@@ -1,6 +1,9 @@
 use std::fmt::Debug;
 
-trait Shape{
+trait Drawable{
+    fn draw(&self);
+}
+trait Shape : Drawable{
     fn area(&self) -> f32;
     fn describe(&self) -> String;
 
@@ -44,6 +47,13 @@ impl Shape for Circle{
     }
 }
 
+//必须在单独的 implementation 中实现 super trait 的方法。
+impl Drawable for Circle{
+    fn draw(&self){
+        println!("Drawing a circle.");
+    }
+}
+
 impl Shape for Rectangle{
     fn area(&self) -> f32{
         self.width * self.height
@@ -51,6 +61,12 @@ impl Shape for Rectangle{
 
     fn describe(&self) -> String{
         self.common.to_string()
+    }
+}
+
+impl Drawable for Rectangle{
+    fn draw(&self){
+        println!("Drawing a rectangle.");
     }
 }
 
@@ -85,10 +101,12 @@ fn main(){
         },
         radius: 1.0,
     };
-    
+    circle.draw();
     circle.print_area();
     print_area2(&circle);
     print_area1(&circle);
+
+    println!("\n===================\n");
 
     let rectangle = Rectangle{
         common: NameColor{
@@ -98,6 +116,7 @@ fn main(){
         width: 2.0,
         height: 3.0,
     };
+    rectangle.draw();
     rectangle.print_area();
     print_area2(&rectangle);
     print_area1(&rectangle);
