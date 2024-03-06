@@ -1,5 +1,6 @@
 use std::collections::HashSet;
 
+// combinator : 组合子。
 fn main() {
     let fruits = vec!["banana", "apple", "coconut", "orange", "strawberry"];
 
