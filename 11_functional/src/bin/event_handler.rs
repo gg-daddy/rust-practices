@@ -3,8 +3,8 @@
 struct EventHandler<T>
 where
     T: FnMut() -> (), // Something wrong here.
-             //Hint: Check the code in main and see how the closure is using
-             // the values from its enviroment
+                      //Hint: Check the code in main and see how the closure is using
+                      // the values from its enviroment
 {
     on_event: T,
 }
@@ -14,7 +14,7 @@ where
     T: FnMut() -> (), // Something wrong here
 {
     fn handle_event(&mut self) {
-        (self.on_event)()                                                                           
+        (self.on_event)()
     }
 }
 

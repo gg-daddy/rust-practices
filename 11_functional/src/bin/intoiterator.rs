@@ -1,4 +1,4 @@
-// Problem 3: Complete the into_iter function definition. 
+// Problem 3: Complete the into_iter function definition.
 // Also add the type for the associated type item
 
 struct Pixel {
@@ -8,11 +8,11 @@ struct Pixel {
 }
 
 impl IntoIterator for Pixel {
-    type Item = i8; // this needs to be fixed 
+    type Item = i8; // this needs to be fixed
     type IntoIter = std::vec::IntoIter<Self::Item>;
 
     fn into_iter(self) -> Self::IntoIter {
-        /* The function needs to be completed */ 
+        /* The function needs to be completed */
         vec![self.r, self.g, self.b].into_iter()
     }
 }
