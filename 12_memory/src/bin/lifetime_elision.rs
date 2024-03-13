@@ -1,10 +1,11 @@
 /*
 Lifetime Elision Rules:
 
-1. The first rule is that each parameter that is a reference gets its own lifetime parameter annotation.
+1. The first rule is that each parameter(这个地方，parameter 就是只函数的入参) that is a reference gets its own lifetime parameter annotation.
 2. The second rule is if there is exactly one input lifetime parameter that lifetime is assigned to all output lifetimes.
 3. And finally, if there are multiple input lifetime parameters, but one of them is a reference to self
-or a mutable reference to self, the lifetime of self is assigned to all the output lifetime parameters.
+or a mutable reference to self (这个是针对 method 的规则), the lifetime of self is assigned to all the output lifetime parameters.
+4. 如果上面三个规则都不满足，那么就会报错。需要手工指定生命周期。
 */
 
 fn main() {
