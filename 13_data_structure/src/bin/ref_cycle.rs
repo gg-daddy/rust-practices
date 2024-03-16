@@ -110,3 +110,9 @@ struct MultiChildNode {
     parent: RefCell<Weak<MultiChildNode>>,
     children: RefCell<Vec<Rc<MultiChildNode>>>,
 }
+
+impl Drop for MultiChildNode {
+    fn drop(&mut self) {
+        println!("Dropping MultiChildNode with value {}", self.value);
+    }
+}
