@@ -32,8 +32,9 @@ fn main() {
         b: B { f1: 1 },
         c: C { f2: 2, f3: 3 },
     };
-    let r1 = fn1(&mut a.b);
+    //通过避免借用整个结构体，可以避免借用检查。
+    let r1 = fn1(&mut a.b); //只借用了 a.b
     println!("{}", r1);
-    fn2(&mut a.c);
+    fn2(&mut a.c); //只借用了 a.c， 和上面的 fn1 借用不冲突。避免了借用检查。
     println!("{}", r1);
 }
